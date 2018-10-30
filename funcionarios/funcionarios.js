@@ -1,7 +1,7 @@
 const url = 'http://files.cod3r.com.br/curso-js/funcionarios.json'
 const axios = require('axios')
 
-const chineses = f=> f.pais === 'China'
+const chineses = f => f.pais === 'China'
 const mulheres = f => f.genero === 'F'
 const menosSalario = (func, funcAtual) => {
     return func.salario < funcAtual.salario ? func : funcAtual
@@ -17,5 +17,5 @@ axios.get(url).then(response =>{
     .reduce(menosSalario)
 
     console.log(func)
-    
+
 })
