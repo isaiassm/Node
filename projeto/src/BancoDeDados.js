@@ -4,6 +4,7 @@ const sequence = {
 }
 
 const produtos = {}
+
 function salvarProduto(produto){
     if(!produto.id) produto.id = sequence.id
     produtos[produto.id] = produto

@@ -8,14 +8,14 @@ const bancoDeDados = require('./BancoDeDados')
 app.use(bodyParse.urlencoded({extended: true}))
 
 app.get('/produtos', (req, res, next)=>{
-    res.send(bancoDeDados.getProduto()) //converter para JSON
+    res.send(bancoDeDados.getProdutos()) //converter para JSON
 })
 
 app.get('/produtos/:id',(req, res, next)=>{
-    res.send(bancoDeDados.getProduto(req.parans.id))
+    res.send(bancoDeDados.getProduto(req.paranms.id))
 })
 
-app.put('/produtos', (req, res, next)=> {
+app.post('/produtos', (req, res, next)=> {
     const produto = bancoDeDados.salvarProduto ({
     nome: req.body.nome,
     preco: req.body.preco
@@ -25,7 +25,7 @@ app.put('/produtos', (req, res, next)=> {
 
 app.put('/produtos/:id', (req, res, next)=> {
     const produto = bancoDeDados.salvarProduto ({
-    id: req.parans.id,    
+    id: req.params.id,    
     nome: req.body.nome,
     preco: req.body.preco
     })
@@ -33,7 +33,7 @@ app.put('/produtos/:id', (req, res, next)=> {
 })
 
 app.delete('/produtos', (req, res, next)=> {
-    const produto = bancoDeDados.excluirProduto(req.parans.id)
+    const produto = bancoDeDados.excluirProduto(req.params.id)
         res.send(produto) //json
     })
     
